@@ -38,5 +38,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxtjs/tailwindcss'
+  ],
+
+	routeRules: {
+    '/': { prerender: true },
+  },
+
+  css: [
+    '@/assets/css/main.css'
   ]
 })

@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap");
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background-color: #1a1a1a;
+  /* background-image: url("https://images6.alphacoders.com/138/thumb-1920-1383836.webp"); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: "Rajdhani", sans-serif;
+  color: #e1e1e1;
+}
+
+.rust-header {
+  background: rgba(20, 20, 20, 0.85);
+  border-bottom: 2px solid #5c3a21;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.rust-menu-item {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.rust-menu-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #d38a3a;
+  transition: width 0.3s;
+}
+
+.rust-menu-item:hover::after {
+  width: 100%;
+}
+
+.rust-button {
+  background: linear-gradient(to bottom, #5c3a21, #3a2415);
+  border: 1px solid #8a5a2c;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+.rust-button:hover {
+  background: linear-gradient(to bottom, #6d4a31, #4a3415);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.rust-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rust-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #5c3a21, transparent);
+}
+
+.mobile-menu {
+  background: rgba(30, 25, 20, 0.95);
+  border: 1px solid #5c3a21;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.7;
+  filter: brightness(0.6) contrast(1.2) sepia(0.3);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 15, 10, 0.65);
+  z-index: -99;
+}
+
+main,
+header {
+  position: relative;
+  z-index: 1;
+}
+
+.rust-card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* .rust-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      } */
+
+.rust-button-discord {
+  background: linear-gradient(to bottom, #5865f2, #4752c4);
+  border: 1px solid #6a75f3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rust-button-discord:hover {
+  background: linear-gradient(to bottom, #6a75f3, #5865f2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.rust-button-discord:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los botones de acción */
+.rust-button-action {
+  background: linear-gradient(to bottom, #5c3a21, #3a2415);
+  border: 1px solid #8a5a2c;
+  color: #e1c78c;
+  transition: all 0.2s;
+  border-radius: 0.125rem;
+}
+
+.rust-button-action:hover {
+  background: linear-gradient(to bottom, #6d4a31, #4a3415);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rust-button-action:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
