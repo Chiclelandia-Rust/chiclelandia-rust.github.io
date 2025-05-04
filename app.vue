@@ -46,47 +46,7 @@
           >
 
           <div class="flex items-center space-x-3">
-            <!-- Selector de idioma -->
-            <div class="relative group">
-              <button class="rust-button flex items-center px-3 py-1 text-sm">
-                <span class="mr-1">🌐</span>
-                <span>{{ currentLanguage.toUpperCase() }}</span>
-                <svg
-                  class="w-4 h-4 ml-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              <div
-                class="absolute right-0 hidden group-hover:block mt-1 w-32 bg-[#2a1e13] border border-[#5c3a21] shadow-lg"
-              >
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center"
-                  @click.prevent="changeLanguage('es')"
-                >
-                  <span class="mr-2">🇪🇸</span> Español
-                </a>
-                <div class="rust-divider" />
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center"
-                  @click.prevent="changeLanguage('en')"
-                >
-                  <span class="mr-2">🇬🇧</span> English
-                </a>
-              </div>
-            </div>
+            <LanguageSelector />
 
             <button
               class="rust-button text-amber-100 px-4 py-1 rounded-sm text-sm font-semibold"
