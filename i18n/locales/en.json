@@ -1,0 +1,27 @@
+{
+  "welcome": "Welcome",
+  "header": {
+    "home": "Home",
+    "discord": "Discord",
+    "shop": "Shop",
+    "rules": "Rules",
+    "language": "Language"
+  },
+  "discord": {
+    "description": "Join our Discord community to stay updated with the latest news, events and chat with other players.",
+    "online": "Online",
+    "joined": "Total",
+    "join": "Join Discord"
+  },
+  "server": {
+    "connectToServer": "Connect to Server",
+    "status": "Status",
+    "players": "Players",
+    "serverIP": "Server IP",
+    "copyIP": "Copy IP",
+    "connectDirectly": "Connect Directly",
+    "onlineStatus": "Online",
+    "offlineStatus": "Offline",
+    "unknownStatus": "Unknown"
+  }
+}
