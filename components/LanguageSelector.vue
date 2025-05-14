@@ -45,9 +45,9 @@
       >
         <template  v-for="(locale, index) in locales" :key="locale.name" >
           <div v-if="index>0" class="rust-divider" />
-          <NuxtLink @click.prevent="setLocale(locale.code)" class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center" to="/">
+          <a @click.prevent="setLocale(locale.code)" class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center" href="#">
             <span class="mr-2"><img :src="getFlag(locale.language!)" width="16" height="16"></span> {{ locale.name }}
-          </NuxtLink>
+          </a>
         </template>
       </div>
     </transition>

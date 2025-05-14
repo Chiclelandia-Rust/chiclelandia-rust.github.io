@@ -5,9 +5,9 @@
     {{ $t('header.language') }}
   </div>
   <template  v-for="locale in locales" :key="locale.name" >
-    <NuxtLink @click.prevent="setLocale(locale.code)" class="rust-menu-item flex items-center px-2 py-2"  to="/">
+    <a @click.prevent="setLocale(locale.code)" class="rust-menu-item flex items-center px-2 py-2"  href="#">
       <span class="mr-2"><img :src="getFlag(locale.language!)" width="16" height="16"></span> {{ locale.name }}
-    </NuxtLink>
+    </a>
   </template>
 </template>
 
