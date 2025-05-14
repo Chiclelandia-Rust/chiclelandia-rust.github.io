@@ -6,7 +6,7 @@
           src="@/assets/images/chiclelandia-logo.png"
           alt="Chiclelandia Logo"
           class="h-10 w-10 rounded-sm"
-        >
+        />
         <span class="text-xl font-bold text-amber-400 tracking-wide"
           >CHICLELANDIA</span
         >
@@ -18,17 +18,17 @@
           href="https://discord.gg/H2MfDyvukj"
           target="_blank"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
-          >{{ $t('header.discord') }}</a
+          >{{ $t("header.discord") }}</a
         >
         <a
           href="#"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
-          >{{ $t('header.shop') }}</a
+          >{{ $t("header.shop") }}</a
         >
         <a
           href="#"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
-          >{{ $t('header.rules') }}</a
+          >{{ $t("header.rules") }}</a
         >
 
         <div class="flex items-center space-x-3">
@@ -76,11 +76,21 @@
       class="mobile-menu md:hidden absolute top-full left-0 right-0 py-3 px-4"
     >
       <div class="flex flex-col space-y-3">
-        <NuxtLink class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2" to="https://discord.gg/H2MfDyvukj" target="_blank"> {{ $t('header.discord') }} </NuxtLink>
+        <a
+          class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
+          href="https://discord.gg/H2MfDyvukj"
+          target="_blank"
+        >
+          {{ $t("header.discord") }}
+        </a>
         <div class="rust-divider my-1" />
-        <NuxtLink class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2" to="/"> {{ $t('header.shop') }} </NuxtLink>
+        <a class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2">
+          {{ $t("header.shop") }}
+        </a>
         <div class="rust-divider my-1" />
-        <NuxtLink class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2" to="/"> {{ $t('header.rules') }} </NuxtLink>
+        <a class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2">
+          {{ $t("header.rules") }}
+        </a>
         <div class="pt-2 flex flex-col space-y-3">
           <LanguageSelectorMobile />
         </div>
