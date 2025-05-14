@@ -24,7 +24,7 @@
           <h2
             class="ml-3 text-xl font-bold text-amber-300 uppercase tracking-wide"
           >
-            Conectar al Servidor
+            {{ $t('server.connectToServer') }}
           </h2>
         </div>
       </div>
@@ -59,7 +59,7 @@
                 "
               />
               <span class="text-green-400 text-sm"
-                >Estado:
+                >{{ $t('server.status') }}:
                 <span
                   :class="
                     currentServerData.status === 'online'
@@ -67,20 +67,22 @@
                       : 'text-red-400'
                   "
                 >
-                  En línea
+                  {{ $t(`server.${currentServerData.status}Status`) }}
                 </span>
               </span>
             </div>
             <span class="text-amber-200 text-sm"
-              >Jugadores:
-              <span>50/100</span>
+              >{{ $t('server.players') }}:
+              <span>{{
+                currentServerData.players
+              }}</span>
             </span>
           </div>
 
           <div class="bg-[#2a1e13] p-4 rounded-sm border border-[#5c3a21] mb-4">
             <div class="flex items-center justify-between mb-2">
               <span class="text-amber-100 font-mono text-sm"
-                >IP del servidor:</span
+                >{{ $t('server.serverIP') }}:</span
               >
               <span class="text-amber-300 font-mono">{{
                 currentServerData.ip
@@ -107,7 +109,7 @@
                     d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                   />
                 </svg>
-                Copiar IP
+                {{ $t('server.copyIP') }}
               </button>
 
               <!-- Botón Conectar Directamente -->
@@ -129,7 +131,7 @@
                     d="M13 10V3L4 14h7v7l9-11h-7z"
                   />
                 </svg>
-                Conectar Directamente
+                {{ $t('server.connectDirectly') }}
               </a>
             </div>
           </div>
@@ -178,38 +180,6 @@ const servers = ref([
 
 // Servidor seleccionado
 const selectedServer = ref("x5");
-
-// Contenido multiidioma
-const languageContent = {
-  es: {
-    discordDescription:
-      "Únete a nuestra comunidad de Discord para estar al día con las últimas noticias, eventos y conversar con otros jugadores.",
-    online: "En línea",
-    joinDiscord: "Unirse al Discord",
-    connectToServer: "Conectar al Servidor",
-    status: "Estado",
-    players: "Jugadores",
-    serverIP: "IP del servidor",
-    copyIP: "Copiar IP",
-    connectDirectly: "Conectar Directamente",
-    onlineStatus: "En línea",
-    offlineStatus: "Fuera de línea",
-  },
-  en: {
-    discordDescription:
-      "Join our Discord community to stay updated with the latest news, events and chat with other players.",
-    online: "Online",
-    joinDiscord: "Join Discord",
-    connectToServer: "Connect to Server",
-    status: "Status",
-    players: "Players",
-    serverIP: "Server IP",
-    copyIP: "Copy IP",
-    connectDirectly: "Connect Directly",
-    onlineStatus: "Online",
-    offlineStatus: "Offline",
-  },
-};
 
 // Computed para obtener los datos del servidor actual
 const currentServerData = computed(() => {

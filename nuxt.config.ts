@@ -35,10 +35,20 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxtjs/tailwindcss'
   ],
+
+	i18n: {
+		strategy: 'no_prefix',
+		defaultLocale: 'es-ES',
+		locales: [
+			{ code: 'es-ES', language: 'es-ES', name: 'Español', file: 'es.json'},
+			{ code: 'en-GB', language: 'en-GB', name: 'English', file: 'en.json'}
+		]
+	},
 
 	routeRules: {
     '/': { prerender: true },
