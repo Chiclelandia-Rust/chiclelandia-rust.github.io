@@ -21,7 +21,8 @@
           >{{ $t("header.discord") }}</a
         >
         <a
-          href="#"
+          href="https://store.chiclelandia.com/"
+          target="_blank"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
           >{{ $t("header.shop") }}</a
         >
@@ -84,11 +85,18 @@
           {{ $t("header.discord") }}
         </a>
         <div class="rust-divider my-1" />
-        <a class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2">
+        <a
+          class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
+          href="https://store.chiclelandia.com/"
+          target="_blank"
+        >
           {{ $t("header.shop") }}
         </a>
         <div class="rust-divider my-1" />
-        <a class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2">
+        <a
+          class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
+          href="#"
+        >
           {{ $t("header.rules") }}
         </a>
         <div class="pt-2 flex flex-col space-y-3">
