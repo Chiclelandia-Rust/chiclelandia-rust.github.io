@@ -10,7 +10,7 @@
       @click="isLanguageDropdownOpen = !isLanguageDropdownOpen"
     >
       <span class="mr-1"><LanguagesIcon :size="12" /></span>
-      <span>{{ currentLanguage.toUpperCase() }}</span>
+      <span>{{ localeProperties.name?.toUpperCase() }}</span>
       <svg
         class="w-4 h-4 ml-1 transition-transform duration-200"
         :class="{ 'rotate-180': isLanguageDropdownOpen }"
@@ -43,21 +43,12 @@
         @mouseenter="isLanguageDropdownOpen = true"
         @mouseleave="isLanguageDropdownOpen = false"
       >
-        <a
-          href="#"
-          class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center"
-          @click.prevent="changeLanguage('es')"
-        >
-          <span class="mr-2"><img src="../assets/images/flags/es.svg" width="16" height="16"></span> Español
-        </a>
-        <div class="rust-divider" />
-        <a
-          href="#"
-          class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center"
-          @click.prevent="changeLanguage('en')"
-        >
-          <span class="mr-2"><img src="../assets/images/flags/gb.svg" width="16" height="16"></span> English
-        </a>
+        <template  v-for="(locale, index) in locales" :key="locale.name" >
+          <div v-if="index>0" class="rust-divider" />
+          <a @click.prevent="setLocale(locale.code)" class="block px-4 py-2 text-amber-100 hover:bg-[#3a2a18] hover:text-amber-300 transition flex items-center" href="#">
+            <span class="mr-2"><img :src="getFlag(locale.language!)" width="16" height="16"></span> {{ locale.name }}
+          </a>
+        </template>
       </div>
     </transition>
   </div>
@@ -65,14 +56,14 @@
 
 <script setup lang="ts">
 import { LanguagesIcon } from 'lucide-vue-next'
+const { localeProperties, locales, setLocale } = useI18n()
+const flags = import.meta.glob('../assets/images/flags/*.svg', { eager: true, as: 'url' })
 
 const isLanguageDropdownOpen = ref(false);
-const currentLanguage = ref("es");
 
-const changeLanguage = (lang: string) => {
-  currentLanguage.value = lang;
-  isLanguageDropdownOpen.value = false;
-};
+const getFlag = (code: string) => {
+  return flags[`../assets/images/flags/${code.split('-')[1].toLowerCase()}.svg`] || ''
+}
 </script>
 
 <style scoped>
