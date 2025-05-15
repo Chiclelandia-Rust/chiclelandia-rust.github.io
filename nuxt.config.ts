@@ -33,6 +33,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
+    '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxtjs/i18n',

@@ -1,5 +1,5 @@
 <template>
-  <header class="rust-header fixed w-full z-50">
+  <header class="rust-header w-full z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-3 select-none">
         <img
@@ -14,6 +14,11 @@
 
       <!-- Menú desktop -->
       <nav class="hidden md:flex space-x-6 items-center">
+        <NuxtLink
+          to="/"
+          class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
+          >{{ $t("header.home") }}</NuxtLink
+        >
         <a
           href="https://discord.gg/H2MfDyvukj"
           target="_blank"
@@ -26,10 +31,10 @@
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
           >{{ $t("header.shop") }}</a
         >
-        <a
-          href="#"
+        <NuxtLink
+          to="/rules"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
-          >{{ $t("header.rules") }}</a
+          >{{ $t("header.rules") }}</NuxtLink
         >
 
         <div class="flex items-center space-x-3">
@@ -77,6 +82,13 @@
       class="mobile-menu md:hidden absolute top-full left-0 right-0 py-3 px-4"
     >
       <div class="flex flex-col space-y-3">
+        <NuxtLink
+          class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
+          to="/"
+        >
+          {{ $t("header.home") }}
+        </NuxtLink>
+        <div class="rust-divider my-1" />
         <a
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
           href="https://discord.gg/H2MfDyvukj"
@@ -93,12 +105,12 @@
           {{ $t("header.shop") }}
         </a>
         <div class="rust-divider my-1" />
-        <a
+        <NuxtLink
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
-          href="#"
+          to="/rules"
         >
           {{ $t("header.rules") }}
-        </a>
+        </NuxtLink>
         <div class="pt-2 flex flex-col space-y-3">
           <LanguageSelectorMobile />
         </div>
@@ -143,6 +155,10 @@ const toggleMenu = () => {
 }
 
 .rust-menu-item:hover::after {
+  width: 100%;
+}
+
+.router-link-active::after {
   width: 100%;
 }
 
