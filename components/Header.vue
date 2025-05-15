@@ -15,7 +15,7 @@
       <!-- Menú desktop -->
       <nav class="hidden md:flex space-x-6 items-center">
         <NuxtLink
-          href="/"
+          to="/"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
           >{{ $t("header.home") }}</NuxtLink
         >
@@ -32,7 +32,7 @@
           >{{ $t("header.shop") }}</a
         >
         <NuxtLink
-          href="/rules"
+          to="/rules"
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-1"
           >{{ $t("header.rules") }}</NuxtLink
         >
@@ -84,7 +84,7 @@
       <div class="flex flex-col space-y-3">
         <NuxtLink
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
-          href="/"
+          to="/"
         >
           {{ $t("header.home") }}
         </NuxtLink>
@@ -107,7 +107,7 @@
         <div class="rust-divider my-1" />
         <NuxtLink
           class="rust-menu-item text-amber-100 hover:text-amber-300 px-2 py-2"
-          to="rules"
+          to="/rules"
         >
           {{ $t("header.rules") }}
         </NuxtLink>
