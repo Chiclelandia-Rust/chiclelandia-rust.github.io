@@ -40,7 +40,7 @@
             :class="{ active: selectedServer === server.id }"
             @click="selectServer(server.id)"
           >
-            {{ server.name }}
+            {{ server.id }}
           </button>
         </div>
 
@@ -73,9 +73,9 @@
             </div>
             <span class="text-amber-200 text-sm"
               >{{ $t('server.players') }}:
-              <span>{{
-                currentServerData.players
-              }}</span>
+              <span>
+                {{ currentServerData.players ?? 0 }} / {{ currentServerData.maxplayers ?? '???' }}
+              </span>
             </span>
           </div>
 
@@ -114,7 +114,7 @@
 
               <!-- Botón Conectar Directamente -->
               <a
-                :href="`steam://run/252490//+connect ${currentServerData.ip}`"
+                :href="`steam://run/252490//+connect ${currentServerConnect}`"
                 class="rust-button-action flex items-center justify-center px-4 py-2 text-center"
               >
                 <svg
@@ -143,15 +143,6 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
-
-// Estado del menú móvil
-const isMobileMenuOpen = ref(false);
-
-// Estado del idioma
-const currentLanguage = ref("es");
-
-// Datos de Discord (simulados)
-const discordMembers = ref("150+");
 
 // Datos de los servidores
 const servers = ref([
@@ -186,6 +177,11 @@ const currentServerData = computed(() => {
   return servers.value.find((server) => server.id === selectedServer.value);
 });
 
+const currentServerConnect = computed(() => {
+  if (currentServerData.value === undefined) return '';
+  return currentServerData.value.ip + ':' + currentServerData.value.gameport;
+});
+
 const selectServer = (serverId: string) => {
   selectedServer.value = serverId;
 };
@@ -200,11 +196,15 @@ const copyToClipboard = async (text: string) => {
 };
 
 // Simular carga de datos al montar el componente
-onMounted(() => {
-  // Aquí podrías hacer llamadas a APIs reales para obtener:
-  // - Estado de los servidores
-  // - Número de jugadores en Discord
-  // etc.
+onMounted(async () => {
+  const rustData = await fetch(
+    "https://rust-server-query.chiclelandia.com/"
+  );
+  const dataJson = await rustData.json();
+  servers.value = dataJson;
+  if (servers.value.find((server) => server.id === selectedServer.value) === undefined) {
+    selectedServer.value = servers.value[0].id;
+  }
 });
 </script>
 
